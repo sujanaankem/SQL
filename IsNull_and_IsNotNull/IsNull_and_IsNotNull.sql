@@ -26,3 +26,12 @@ WHERE Email IS NULL AND Phone IS NOT NULL;
 UPDATE Customers
 SET Email = 'noemail@company.com'
 WHERE Email IS NULL;
+
+SELECT CustomerID, Name, COALESCE(Email, 'noemail@company.com') AS Email
+FROM Customers;
+
+SELECT CustomerID, Name, COALESCE(Phone, 'Not Provided') AS Phone
+FROM Customers;
+
+SELECT CustomerID, Name, COALESCE(Email, Phone, 'No Contact Info') AS ContactInfo
+FROM Customers;
